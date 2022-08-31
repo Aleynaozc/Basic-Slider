@@ -1,58 +1,83 @@
-body{
-    padding: 0px;
-    margin:0;
-    box-sizing: border-box;
-    margin-top: 150px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.carousel_container{  
-     
-    width: 49%;
-    margin:auto;
-    border-radius: 30px;
-    border: 5px solid rgba(192, 129, 84, 0.596) ;
-    box-shadow:rgb(192 129 84);
-    overflow: hidden;
+html,
+body {
+  height: 100%;
 }
-.carousel_slide{
-    
-    display: flex;
-    width: 100%;
-    height: 500px; 
-    
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#prevBtn{
-    border-radius: 25px;
-    position:absolute;
-    width: 32px;
-    bottom:200px;
-    left:620px;
-    background-image: radial-gradient(circle, rgba(255, 107, 107, 0.493), rgba(63, 63, 0, 0.466), rgba(0, 128, 0, 0.308));
-    box-shadow: rgb(192 129 84) 0px 0px 0px 1px;
-
-  
+.carousel_container {
+  width: 560px;
+  height: 340px;
+  border-radius: 10px;
+  border: 5px solid rgba(192, 129, 84, 0.596);
+  position: relative;
+  overflow: hidden;
+  display: flex;
 }
-#nextBtn{
-    
-    border-radius: 25px;
-    position: absolute;
-    width: 32px;
-    bottom: 200px;
-    right:620px;
-    background-image: radial-gradient(circle, rgba(255, 107, 107, 0.493), rgba(63, 63, 0, 0.466), rgba(0, 128, 0, 0.308));
-    box-shadow: rgb(192 129 84) 0px 0px 0px 1px;
-    
+.carousel_slide {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  transition: transform 0.4s ease-in-out;
 }
-.controls{
-    position: absolute;
-    display: flex;
+.carousel_slide > img {
+  width: 100%;
+  height: 370px;
+  object-fit: cover;
 }
-.dot{
-    position: relative;
-    width: 12px;
-    height: 3.5px;
-    background-color:rgb(150, 62, 0);
-    border-radius: 3px;
-    bottom:24px;
-    margin-left:5px;
-    left:295px;
+#prevBtn,
+#nextBtn {
+  cursor: pointer;
+  border-radius: 25px;
+  position: absolute;
+  width: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.15s;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 107, 107, 0.493),
+    rgba(63, 63, 0, 0.466),
+    rgba(0, 128, 0, 0.308)
+  );
+  box-shadow: rgb(192 129 84) 0px 0px 0px 1px;
+}
+#prevBtn:active,
+#nextBtn:active {
+  opacity: 0.7;
+}
+#prevBtn {
+  left: 10px;
+}
+#nextBtn {
+  right: 10px;
+}
+.controls {
+  position: absolute;
+  display: flex;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 4px;
+}
+.dot {
+  position: relative;
+  width: 20px;
+  height: 3px;
+  background-color: rgb(150, 62, 0);
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.dot.active {
+  opacity: 1;
 }
